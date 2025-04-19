@@ -10,27 +10,31 @@ function App() {
   const [count, setCount] = useState(0);
   const [colour, setColour] = useState("blue");
 
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
   useEffect(() => {
-    console.log("hallo UE");
+    console.log("Hello from UE");
   }, [count]);
 
   function reset() {
     setCount(0);
   }
 
-  function colorblue() {
+  function changeToGreen() {
     setColour("green");
   }
-
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
   return (
-    <div>
-      <button onClick={handleClick}> click </button>
-      <h3> You click x{count} times !!</h3>
-    </div>
+    <>
+      <button style={{ backgroundColor: colour }} onClick={changeToGreen}>
+        Am I the blue or the green?
+      </button>
+      <div>
+        <button onClick={handleClick}> click </button>
+        <h3> You click x{count} times !!</h3>
+      </div>
+    </>
   );
 }
 
